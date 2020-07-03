@@ -21,28 +21,7 @@ class Ocr_phase:
 		for i in range(N):
 			if scores[i] < THRESHOLD:
 				continue
-			"""
-			box = boxes[i]
-			ymin, xmin, ymax, xmax = box
-			x_up = (int(xmin*img_width)-2)
-			y_up = int(ymin*img_height)
-			x_down = (int(xmax*img_width)-1)
-			y_down = int(ymax*img_height)
-			absolute_coord.append((x_up,y_up,x_down,y_down))
-		bounding_box_img = []
-		for c in absolute_coord:
-			bounding_box_img.append(img[c[1]:c[3], c[0]:c[2],:])
-		for n in bounding_box_img:
-			n = cv2.resize(n, None, fx=2, fy=1.6, interpolation=cv2.INTER_CUBIC)
-			b,g,r = cv2.split(n)           # get b,g,r
-			rgb_img = cv2.merge([r,g,b])     # switch it to rgb
-			dst = cv2.fastNlMeansDenoisingColored(rgb_img,None,10,10,7,21)
-			b,g,r = cv2.split(dst)           # get b,g,r
-			n = cv2.merge([r,g,b])     # switch it to rgb
-			n = cv2.cvtColor(n, cv2.COLOR_BGR2GRAY)
-			words = pytesseract.image_to_string(n, lang='jpn_vert')
-			print (words,'\n')
-			"""
+			
 			box = boxes[i]
 			ymin, xmin, ymax, xmax = box
 			x_up = int(xmin*img_width)-10 #wider
@@ -54,16 +33,7 @@ class Ocr_phase:
 		for c in absolute_coord:
 			bounding_box_img.append(img[c[1]:c[3], c[0]:c[2],:])
 		for n in bounding_box_img:
-			"""
-			n = cv2.resize(n, None, fx=1.6, fy=1.6, interpolation=cv2.INTER_CUBIC)
-			#b,g,r = cv2.split(n)           # get b,g,r
-			#rgb_img = cv2.merge([r,g,b])     # switch it to rgb
-			#dst = cv2.fastNlMeansDenoisingColored(rgb_img,None,10,10,7,21)
-			#b,g,r = cv2.split(dst)           # get b,g,r
-			#n = cv2.merge([r,g,b])     # switch it to rgb
-			n = cv2.cvtColor(n, cv2.COLOR_BGR2GRAY)
-			(thresh, blackAndWhiteImage) = cv2.threshold(n, 127, 255, cv2.THRESH_BINARY)
-			"""
+			
 			r,c = n.shape[:2]
 			row, col = n.shape[:2]
 			bottom = n[row-2:row, 0:col]
