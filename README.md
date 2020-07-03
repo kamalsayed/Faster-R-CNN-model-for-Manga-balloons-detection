@@ -4,7 +4,7 @@
 Drive : https://drive.google.com/file/d/1ZvX2GITMzNDY1iG3rqnuGPfs7hgEyvuV/view?usp=sharing
 </h2>
 <ul>
-  <ls> Don't forget to put all in same folder</ls>
-  <ls> Don't forget to put image in same folder</ls>
-  <ls> Don't forget to edit IMAGE_NAME in code and put your image name</ls>
+  <li> Don't forget to put all in same folder</li>
+  <li> Don't forget to put image in same folder</li>
+  <li> Don't forget to edit IMAGE_NAME in code and put your image name</li>
 </ul>
